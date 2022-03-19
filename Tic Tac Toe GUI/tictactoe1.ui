@@ -169,7 +169,7 @@ color:rgb(255, 255, 255);
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout_6">
-     <item row="0" column="0">
+     <item row="1" column="0">
       <widget class="QPushButton" name="Button5">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
@@ -323,7 +323,21 @@ color:rgb(255, 255, 255);
       <height>41</height>
      </rect>
     </property>
-    <layout class="QVBoxLayout" name="verticalLayout"/>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
    </widget>
    <widget class="QWidget" name="widget_4" native="true">
     <property name="geometry">
@@ -377,7 +391,7 @@ font: 14pt &quot;Sitka Small&quot;;</string>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_7">
       <item>
-       <widget class="QPushButton" name="pushButton_2">
+       <widget class="QPushButton" name="playagain">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
           <horstretch>0</horstretch>
@@ -389,7 +403,7 @@ font: 14pt &quot;Sitka Small&quot;;</string>
 font: 14pt &quot;Sitka Small&quot;;</string>
         </property>
         <property name="text">
-         <string>MAIN MENU</string>
+         <string>PLAY AGAIN</string>
         </property>
        </widget>
       </item>
@@ -406,7 +420,7 @@ font: 14pt &quot;Sitka Small&quot;;</string>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_8">
       <item>
-       <widget class="QPushButton" name="playagain">
+       <widget class="QPushButton" name="value">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
           <horstretch>0</horstretch>
@@ -418,7 +432,7 @@ font: 14pt &quot;Sitka Small&quot;;</string>
 font: 14pt &quot;Sitka Small&quot;;</string>
         </property>
         <property name="text">
-         <string>PLAY AGAIN</string>
+         <string/>
         </property>
        </widget>
       </item>
@@ -480,6 +494,31 @@ font: 14pt &quot;Sitka Small&quot;;</string>
       </rect>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_4"/>
+    </widget>
+    <widget class="QWidget" name="verticalLayoutWidget_8">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>221</width>
+       <height>221</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_5">
+      <item>
+       <spacer name="verticalSpacer">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>400</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
     </widget>
    </widget>
    <widget class="QWidget" name="gridLayoutWidget_11">
