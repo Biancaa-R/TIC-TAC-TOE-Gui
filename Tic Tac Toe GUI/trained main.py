@@ -16,6 +16,7 @@ class MainPage(QDialog):
         super(MainPage, self).__init__()
         loadUi("tictactoe1.ui",self)
         self.value.setText("Hello  "+name+" !")
+        matrice=[[0,0,0],[0,0,0],[0,0,0]]
         self.Button1.clicked.connect(self.gotoset1)
         self.Button2.clicked.connect(self.gotoset2)
         self.Button3.clicked.connect(self.gotoset3)
@@ -44,12 +45,20 @@ class MainPage(QDialog):
         points=line
         y=self.confirm_2.text()
         if y in ["Player wins","player wins"]:
+            '''F=open("high.csv","r",newline="")
+            r=csv.reader(F)
+            F.close()
+            if r[-1]==[name,username,str(points)]:
+                pass
+            
+            else:'''
             F=open("high.csv","a",newline="")
             w=csv.writer(F)
             w.writerow([name,username,str(points)])
             F.close()
             print("Successful")
-        
+        else:
+            pass
         #global matrice
         if matrice[0][0]!=0 and matrice[0][1]!=0 and matrice[0][2]!=0:
             if matrice[0][0]==1 and matrice[0][1]==1 and matrice[0][2]==1:
@@ -124,10 +133,10 @@ class MainPage(QDialog):
         else:
             pass
         
-        
     def response(self):
         #global matrice
         global seq
+        seq=[]
         for row_number, row_data in enumerate(matrice):
             for col_number,col_data in enumerate(row_data):
                 if col_data==0:
@@ -143,7 +152,221 @@ class MainPage(QDialog):
                 matrice[1][1]=2
             if True:
                 self.checkwinner()
+
+        #attack
+
+        elif matrice[0][0]==2 and matrice[0][1]==2 and matrice[0][2]==0:
+            self.Button3.setText("O")
+            matrice[0][2]=2
+            seq=[]
+        elif matrice[0][0]==2 and matrice[0][2]==2 and matrice[0][1]==0:
+            self.Button2.setText("O")
+            matrice[0][1]=2
+            seq=[]
+        elif matrice[0][1]==2 and matrice[0][2]==2 and matrice[0][0]==0:
+            self.Button1.setText("O")
+            matrice[0][0]=2
+            seq=[]
+            
+        elif matrice[1][0]==2 and matrice[1][1]==2 and matrice[1][2]==0:
+            self.Button6.setText("O")
+            matrice[1][2]=2
+            seq=[]
+        elif matrice[1][0]==2 and matrice[1][2]==2 and matrice[1][1]==0:
+            self.Button5.setText("O")
+            matrice[1][1]=2
+            seq=[]
+        elif matrice[1][1]==2 and matrice[1][2]==2 and matrice[1][0]==0:
+            self.Button4.setText("O")
+            matrice[1][0]=2
+            seq=[]
+            
+        elif matrice[2][0]==2 and matrice[2][1]==2 and matrice[2][2]==0:
+            self.Button9.setText("O")
+            matrice[2][2]=2
+            seq=[]
+        elif matrice[2][0]==2 and matrice[2][2]==2 and matrice[2][1]==0:
+            self.Button8.setText("O")
+            matrice[2][1]=0
+            seq=[]
+        elif matrice[2][1]==2 and matrice[2][2]==2 and matrice[2][0]==0:
+            self.Button7.setText("O")
+            matrice[2][0]=0
+            seq=[]
+
+        elif matrice[0][0]==2 and matrice[1][0]==2 and matrice[2][0]==0:
+            self.Button7.setText("O")
+            matrice[2][0]=2
+            seq=[]
+        elif matrice[0][0]==2 and matrice[2][0]==2 and matrice[1][0]==0:
+            self.Button4.setText("O")
+            matrice[1][0]=2
+            seq=[]
+        elif matrice[2][0]==2 and matrice[1][0]==2 and matrice[0][0]==0:
+            self.Button1.setText("O")
+            matrice[0][0]=2
+            seq=[]
+
+        elif matrice[0][1]==2 and matrice[1][1]==2 and matrice[2][1]==0:
+            self.Button8.setText("O")
+            matrice[2][1]=2
+            seq=[]
+        elif matrice[0][1]==2 and matrice[2][1]==2 and matrice[1][1]==0:
+            self.Button5.setText("O")
+            matrice[1][1]=2
+            seq=[]
+        elif matrice[2][1]==2 and matrice[1][1]==2 and matrice[0][1]==0:
+            self.Button2.setText("O")
+            matrice[0][0]=2
+            seq=[]
+
+        elif matrice[0][2]==2 and matrice[1][2]==2 and matrice[2][2]==0:
+            self.Button9.setText("O")
+            matrice[2][2]=2
+            seq=[]
+        elif matrice[0][2]==2 and matrice[2][2]==2 and matrice[1][2]==0:
+            self.Button6.setText("O")
+            matrice[1][2]=2
+            seq=[]
+        elif matrice[2][2]==2 and matrice[1][2]==2 and matrice[0][2]==0:
+            self.Button3.setText("O")
+            matrice[0][0]=2
+            seq=[]
+            
+        elif matrice[0][0]==2 and matrice[1][1]==2 and matrice[2][2]==0:
+            self.Button9.setText("O")
+            matrice[2][2]=2
+            seq=[]
+        elif matrice[2][2]==2 and matrice[1][1]==2 and matrice[0][0]==0:
+            self.Button1.setText("O")
+            matrice[0][0]=2
+            seq=[]
+        elif matrice[0][0]==2 and matrice[2][2]==2 and matrice[1][1]==0:
+            self.Button5.setText("O")
+            matrice[1][1]=2
+            seq=[]
+
+        elif matrice[0][2]==2 and matrice[1][1]==2 and matrice[2][0]==0:
+            self.Button7.setText("O")
+            matrice[2][0]=2
+            seq=[]
+        elif matrice[0][2]==2 and matrice[2][0]==2 and matrice[1][1]==0:
+            self.Button5.setText("O")
+            matrice[1][1]=2
+            seq=[]
+        elif matrice[2][0]==2 and matrice[1][1]==2 and matrice[0][2]==0:
+            self.Button3.setText("O")
+            matrice[0][0]=2
+            seq=[]
+        
+
+        #defence:
+            
+        elif matrice[0][0]==1 and matrice[0][1]==1 and matrice[0][2]==0:
+            self.Button3.setText("O")
+            matrice[0][2]=2
+            seq=[]
+        elif matrice[0][0]==1 and matrice[0][2]==1 and matrice[0][1]==0:
+            self.Button2.setText("O")
+            matrice[0][1]=2
+            seq=[]
+        elif matrice[0][1]==1 and matrice[0][2]==1 and matrice[0][0]==0:
+            self.Button1.setText("O")
+            matrice[0][0]=2
+            seq=[]
+            
+        elif matrice[1][0]==1 and matrice[1][1]==1 and matrice[1][2]==0:
+            self.Button6.setText("O")
+            matrice[1][2]=2
+            seq=[]
+        elif matrice[1][0]==1 and matrice[1][2]==1 and matrice[1][1]==0:
+            self.Button5.setText("O")
+            matrice[1][1]=2
+            seq=[]
+        elif matrice[1][1]==1 and matrice[1][2]==1 and matrice[1][0]==0:
+            self.Button4.setText("O")
+            matrice[1][0]=2
+            seq=[]
+            
+        elif matrice[2][0]==1 and matrice[2][1]==1 and matrice[2][2]==0:
+            self.Button9.setText("O")
+            matrice[2][2]=2
+            seq=[]
+        elif matrice[2][0]==1 and matrice[2][2]==1 and matrice[2][1]==0:
+            self.Button8.setText("O")
+            matrice[2][1]=0
+            seq=[]
+        elif matrice[2][1]==1 and matrice[2][2]==1 and matrice[2][0]==0:
+            self.Button7.setText("O")
+            matrice[2][0]=0
+            seq=[]
+
+        elif matrice[0][0]==1 and matrice[1][0]==1 and matrice[2][0]==0:
+            self.Button7.setText("O")
+            matrice[2][0]=2
+            seq=[]
+        elif matrice[0][0]==1 and matrice[2][0]==1 and matrice[1][0]==0:
+            self.Button4.setText("O")
+            matrice[1][0]=2
+            seq=[]
+        elif matrice[2][0]==1 and matrice[1][0]==1 and matrice[0][0]==0:
+            self.Button1.setText("O")
+            matrice[0][0]=2
+            seq=[]
+
+        elif matrice[0][1]==1 and matrice[1][1]==1 and matrice[2][1]==0:
+            self.Button8.setText("O")
+            matrice[2][1]=2
+            seq=[]
+        elif matrice[0][1]==1 and matrice[2][1]==1 and matrice[1][1]==0:
+            self.Button5.setText("O")
+            matrice[1][1]=2
+            seq=[]
+        elif matrice[2][1]==1 and matrice[1][1]==1 and matrice[0][1]==0:
+            self.Button2.setText("O")
+            matrice[0][0]=2
+            seq=[]
+
+        elif matrice[0][2]==1 and matrice[1][2]==1 and matrice[2][2]==0:
+            self.Button9.setText("O")
+            matrice[2][2]=2
+            seq=[]
+        elif matrice[0][2]==1 and matrice[2][2]==1 and matrice[1][2]==0:
+            self.Button6.setText("O")
+            matrice[1][2]=2
+            seq=[]
+        elif matrice[2][2]==1 and matrice[1][2]==1 and matrice[0][2]==0:
+            self.Button3.setText("O")
+            matrice[0][0]=2
+            seq=[]
+        
+        elif matrice[0][0]==1 and matrice[1][1]==1 and matrice[2][2]==0:
+            self.Button9.setText("O")
+            matrice[2][2]=2
+            seq=[]
+        elif matrice[2][2]==1 and matrice[1][1]==1 and matrice[0][0]==0:
+            self.Button1.setText("O")
+            matrice[0][0]=2
+            seq=[]
+        elif matrice[0][0]==1 and matrice[2][2]==1 and matrice[1][1]==0:
+            self.Button5.setText("O")
+            matrice[1][1]=2
+            seq=[]
+
+        elif matrice[0][2]==1 and matrice[1][1]==1 and matrice[2][0]==0:
+            self.Button7.setText("O")
+            matrice[2][0]=2
+            seq=[]
+        elif matrice[0][2]==1 and matrice[2][0]==1 and matrice[1][1]==0:
+            self.Button5.setText("O")
+            matrice[1][1]=2
+            seq=[]
+        elif matrice[2][0]==1 and matrice[1][1]==1 and matrice[0][2]==0:
+            self.Button3.setText("O")
+            matrice[0][0]=2
+            seq=[]
                 
+
         elif len(seq)!=0:
             choice1=random.choice(seq)
             row_number,col_number=choice1
@@ -197,6 +420,7 @@ class MainPage(QDialog):
                     seq=[]
                 if True:
                     self.checkwinner()
+                    
             elif row_number==1 and col_number==2:
                 y=self.confirm_2.text()
                 if y in ["Player wins","Opponent wins","ALL done"]:
@@ -237,9 +461,10 @@ class MainPage(QDialog):
                     seq=[]
                 if True:
                     self.checkwinner()
-        
+
         else:
             self.confirm_2.setText("ALL done")
+        
     def gotoclear(self):
         global matrice
         self.Button1.setText("")
@@ -260,6 +485,9 @@ class MainPage(QDialog):
         y=self.confirm_2.text()
         if y in ["Player wins","Opponent wins","ALL done"]:
             pass
+        if matrice[0][0]!=0:
+            pass
+            self.checkwinner()
         else:
             self.Button1.setText("X")
             matrice[0][0]=1
@@ -274,6 +502,9 @@ class MainPage(QDialog):
         y=self.confirm_2.text()
         if y in ["Player wins","Opponent wins","ALL done"]:
             pass
+        if matrice[0][1]!=0:
+            pass
+            self.checkwinner()
         else:
             self.Button2.setText("X")
             matrice[0][1]=1
@@ -288,6 +519,9 @@ class MainPage(QDialog):
         y=self.confirm_2.text()
         if y in ["Player wins","Opponent wins","ALL done"]:
             pass
+        if matrice[0][2]!=0:
+            pass
+            self.checkwinner
         else:
             self.Button3.setText("X")
             matrice[0][2]=1
@@ -301,6 +535,9 @@ class MainPage(QDialog):
         y=self.confirm_2.text()
         if y in ["Player wins","Opponent wins","ALL done"]:
             pass
+        if matrice[1][0]!=0:
+            pass
+            self.checkwinner()
         else:
             self.Button4.setText("X")
             matrice[1][0]=1
@@ -314,6 +551,9 @@ class MainPage(QDialog):
         y=self.confirm_2.text()
         if y in ["Player wins","Opponent wins","ALL done"]:
             pass
+        if matrice[1][1]!=0:
+            pass
+            self.checkwinner()
         else:
             self.Button5.setText("X")
             matrice[1][1]=1
@@ -326,6 +566,9 @@ class MainPage(QDialog):
         y=self.confirm_2.text()
         if y in ["Player wins","Opponent wins","ALL done"]:
             pass
+        if matrice[1][2]!=0:
+            pass
+            self.checkwinner()
         else:
             self.Button6.setText("X")
             matrice[1][2]=1
@@ -339,6 +582,9 @@ class MainPage(QDialog):
         y=self.confirm_2.text()
         if y in ["Player wins","Opponent wins","ALL done"]:
             pass
+        if matrice[2][0]!=0:
+            pass
+            self.checkwinner()
         else:
             self.Button7.setText("X")
             matrice[2][0]=1
@@ -351,6 +597,9 @@ class MainPage(QDialog):
         y=self.confirm_2.text()
         if y in ["Player wins","Opponent wins","ALL done"]:
             pass
+        if matrice[2][1]!=0:
+            pass
+            self.checkwinner()
         else:
             self.Button8.setText("X")
             matrice[2][1]=1
@@ -363,6 +612,9 @@ class MainPage(QDialog):
         y=self.confirm_2.text()
         if y in ["Player wins","Opponent wins","ALL done"]:
             pass
+        if matrice[2][2]!=0:
+            pass
+            self.checkwinner()
         else:
             self.Button9.setText("X")
             matrice[2][2]=1
